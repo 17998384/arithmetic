@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6573D0E4-17CD-4DD4-9C4E-3265F0E14F03"
-            shouldBeEnabled = "Yes"
+            uuid = "51654012-D176-42DD-BC6F-48438B9F9BA0"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "leecode/three_sum.c"
+            filePath = "utils/quick_sort.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "threeSum(nums, numsSize, returnSize, returnColumnSizes)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "quick_sort0(arr, L, R, size)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

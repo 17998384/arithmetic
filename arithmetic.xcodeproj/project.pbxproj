@@ -15,6 +15,7 @@
 		FAAB6937250F1CD400994660 /* longest_common_prefix.c in Sources */ = {isa = PBXBuildFile; fileRef = FAAB6936250F1CD400994660 /* longest_common_prefix.c */; };
 		FAAB6939250F1DCE00994660 /* max_area.c in Sources */ = {isa = PBXBuildFile; fileRef = FAAB6938250F1DCE00994660 /* max_area.c */; };
 		FAAB693B250F1E1700994660 /* is_palindrome.c in Sources */ = {isa = PBXBuildFile; fileRef = FAAB693A250F1E1700994660 /* is_palindrome.c */; };
+		FAAB693E250F1F8E00994660 /* quick_sort.c in Sources */ = {isa = PBXBuildFile; fileRef = FAAB693D250F1F8E00994660 /* quick_sort.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		FAAB6936250F1CD400994660 /* longest_common_prefix.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = longest_common_prefix.c; sourceTree = "<group>"; };
 		FAAB6938250F1DCE00994660 /* max_area.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = max_area.c; sourceTree = "<group>"; };
 		FAAB693A250F1E1700994660 /* is_palindrome.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = is_palindrome.c; sourceTree = "<group>"; };
+		FAAB693C250F1F8E00994660 /* quick_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quick_sort.h; sourceTree = "<group>"; };
+		FAAB693D250F1F8E00994660 /* quick_sort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = quick_sort.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 			children = (
 				FAAB6927250F11CB00994660 /* heap_sort.h */,
 				FAAB6928250F11CB00994660 /* heap_sort.c */,
+				FAAB693C250F1F8E00994660 /* quick_sort.h */,
+				FAAB693D250F1F8E00994660 /* quick_sort.c */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAB6933250F1C7200994660 /* int_to_roman.c in Sources */,
+				FAAB693E250F1F8E00994660 /* quick_sort.c in Sources */,
 				FAAB692C250F12E500994660 /* three_sum.c in Sources */,
 				FAAB6935250F1CA500994660 /* roman_to_int.c in Sources */,
 				FAAB6931250F1B5200994660 /* three_sum2.c in Sources */,

@@ -69,7 +69,7 @@ static int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColu
     return return_array;
 }
 
-int main(void)
+int main_three_sum2(void)
 {
     int nums[] = {-2,-2,-1,0,1,2};
     int return_size;
