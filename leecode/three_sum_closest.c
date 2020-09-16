@@ -1,7 +1,7 @@
 //
 //  three_sum_closest.c
 //  arithmetic
-//
+//  最接近的三数之和
 //  Created by 我叫城北徐公° on 2020/9/16.
 //  Copyright © 2020 alex. All rights reserved.
 //
