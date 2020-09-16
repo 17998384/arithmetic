@@ -16,6 +16,7 @@
 		FAAB6939250F1DCE00994660 /* max_area.c in Sources */ = {isa = PBXBuildFile; fileRef = FAAB6938250F1DCE00994660 /* max_area.c */; };
 		FAAB693B250F1E1700994660 /* is_palindrome.c in Sources */ = {isa = PBXBuildFile; fileRef = FAAB693A250F1E1700994660 /* is_palindrome.c */; };
 		FAAB693E250F1F8E00994660 /* quick_sort.c in Sources */ = {isa = PBXBuildFile; fileRef = FAAB693D250F1F8E00994660 /* quick_sort.c */; };
+		FABF9A942512594C005E7EF0 /* three_sum_closest.c in Sources */ = {isa = PBXBuildFile; fileRef = FABF9A932512594C005E7EF0 /* three_sum_closest.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		FAAB693A250F1E1700994660 /* is_palindrome.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = is_palindrome.c; sourceTree = "<group>"; };
 		FAAB693C250F1F8E00994660 /* quick_sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = quick_sort.h; sourceTree = "<group>"; };
 		FAAB693D250F1F8E00994660 /* quick_sort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = quick_sort.c; sourceTree = "<group>"; };
+		FABF9A932512594C005E7EF0 /* three_sum_closest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = three_sum_closest.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				FAAB6934250F1CA500994660 /* roman_to_int.c */,
 				FAAB6936250F1CD400994660 /* longest_common_prefix.c */,
 				FAAB693A250F1E1700994660 /* is_palindrome.c */,
+				FABF9A932512594C005E7EF0 /* three_sum_closest.c */,
 			);
 			path = leecode;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				FAAB6935250F1CA500994660 /* roman_to_int.c in Sources */,
 				FAAB6931250F1B5200994660 /* three_sum2.c in Sources */,
 				FAAB6939250F1DCE00994660 /* max_area.c in Sources */,
+				FABF9A942512594C005E7EF0 /* three_sum_closest.c in Sources */,
 				FAAB6929250F11CB00994660 /* heap_sort.c in Sources */,
 				FAAB693B250F1E1700994660 /* is_palindrome.c in Sources */,
 				FAAB6937250F1CD400994660 /* longest_common_prefix.c in Sources */,

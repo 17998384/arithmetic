@@ -44,7 +44,7 @@ void quick_sort(int* arr,int size)
     quick_sort0(arr, 0, size - 1, size);
 }
 
-int main(void)
+int main_qsort(void)
 {
 //    int arr[] = {5,2,4,6,8,3,9,7};
     int arr[] = {-1,0,1,2,-1,-4};
