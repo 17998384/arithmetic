@@ -47,7 +47,7 @@ loop:
     return target_num;
 }
 
-int main(void)
+int three_sum_closest(void)
 {
     int arr[] = {0,2,1,-3,-1};
     int target = threeSumClosest(arr, sizeof(arr)/sizeof(int), 1);
