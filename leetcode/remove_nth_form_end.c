@@ -72,7 +72,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
     }
     return head;
 }
-int main(void)
+int main_remove_nth_form_end(void)
 {
     struct ListNode* head = (struct ListNode*)malloc(sizeof(struct ListNode));
     head->val = 1;
