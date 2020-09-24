@@ -1,7 +1,7 @@
 //
 //  four_sum.c
 //  arithmetic
-//
+//  四数之和
 //  Created by 我叫城北徐公° on 2020/9/23.
 //  Copyright © 2020 alex. All rights reserved.
 //
