@@ -30,11 +30,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
     while (1)
     {
         if (p1 == NULL && p2 == NULL)
-        {
-            if (curret_node != NULL)
-                curret_node->next = NULL;
             break;
-        }
         struct ListNode* tmp = NULL;
         if (p1 != NULL && p2 != NULL)
         {
@@ -53,14 +49,17 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2){
         else if (p1 != NULL && p2 == NULL)
         {
             tmp = p1;
-            p1 = p1->next;
+            p1 = NULL;
+            goto loop;
         }
         else if (p1 == NULL && p2 != NULL)
         {
             tmp = p2;
-            p2 = p2->next;
+            p2 = NULL;
+            goto loop;
         }
         else{}
+    loop:
         if (return_node == NULL)
         {
             return_node = tmp;
