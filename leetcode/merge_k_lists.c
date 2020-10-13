@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "list_node.h"
 
 /**
  * Definition for singly-linked list.
@@ -18,11 +19,6 @@
  *     struct ListNode *next;
  * };
  */
-
-struct ListNode {
-    int val;
-    struct ListNode *next;
-};
 
 static int compare(void* a,void* b)
 {
@@ -90,4 +86,5 @@ int main_merge_k_lists(void)
 {
     eg2();
     printf("\n");
+    return 0;
 }
