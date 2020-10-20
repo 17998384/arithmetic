@@ -11,6 +11,16 @@
 #include <string.h>
 #include "hash_map.h"
 
+static int equals(void* a,void* b)
+{
+    return (*(char*)a) == (*(char*)b);
+}
+
+static int hashCode(void* a)
+{
+    return *((char*)a);
+}
+
 /*
     计算next数组
 */
@@ -20,15 +30,17 @@ int* get_next_array(char* needle,int target_len)
     int i = 1;
     next[0] = 0;
     //创建map
-    HashMap* hash_nap = newHashMap();
+    HashMap* hash_nap = newHashMap(hashCode, equals);
     while (needle[i])
     {
-        int value = get(hash_nap, needle[i]);
-        if (value == MAP_NULL)
+        int* value = (int*)get(hash_nap, needle + i);
+        if (value == NULL)
             next[i] = i;
         else
-            next[i] = i - value;
-        put(needle[i], i, hash_nap);
+            next[i] = i - *value;
+        int* i_p = (int*)malloc(sizeof(int));
+        *i_p = i;
+        put(hash_nap,needle + i,i_p);
         i++;
     }
     for (int i = 0; i < target_len; i++)

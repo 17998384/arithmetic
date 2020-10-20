@@ -76,7 +76,7 @@ void resize(HashMap* hashMap)
     hashMap->size = newSize;
 }
 
-Node* createNode(int hash, int key, int value, Node* next)
+Node* createNode(int hash, void* key, void* value, Node* next)
 {
     Node* node = (Node*)malloc(sizeof(Node));
     node->hash = hash;
@@ -89,10 +89,10 @@ Node* createNode(int hash, int key, int value, Node* next)
 void FREE0(Node* node)
 {
     if (node == NULL)
-    {
         return;
-    }
     FREE0(node->next);
+    node->key != NULL ? free(node->key) : NULL;
+    node->value != NULL ? free(node->value) : NULL;
     free(node);
 }
 
@@ -106,71 +106,57 @@ void free_map(HashMap* hashMap)
         Node* e = hashMap->data[i];
         if (e != NULL && e->next == NULL)
         {
+            e->key != NULL ? free(e->key) : NULL;
+            e->value != NULL ? free(e->value) : NULL;
             free(e);
         }
         else
-        {
             FREE0(e);
-        }
     }
+    free(hashMap->data);
     free(hashMap);
 }
 
 /*
     get
 */
-int get(HashMap* hashMap, int key)
+void* get(HashMap* hashMap, void* key)
 {
-    int hash = key;
+    int hash = hashMap->hash_code(key);
     int index = (hashMap->size - 1) & hash;
     Node* node = hashMap->data[index];
     if (node == NULL)
-    {
-        return MAP_NULL;
-    }
+        return NULL;
     if (node->next == NULL)
-    {
-        return node->value;
-    }
+        return hashMap->equals(node->key,key) ? node->value : NULL;
     Node* next;
     do
     {
         next = node->next;
-        if (node->key == key)
-        {
+        if (hashMap->equals(node->key,key))
             return node->value;
-        }
     } while ((node = next) != NULL);
-    return MAP_NULL;
+    return NULL;
 }
 
 /*
     contains
 */
-int contains(HashMap* hashMap, int key)
+int contains(HashMap* hashMap, void* key)
 {
-    int hash = key;
+    int hash = hashMap->hash_code(key);
     int index = (hashMap->size - 1) & hash;
     Node* node = hashMap->data[index];
     if (node == NULL)
-    {
         return 0;
-    }
     if (node->next == NULL)
-    {
-        if (node->key == key)
-            return 1;
-        else
-            return 0;
-    }
+        return hashMap->equals(node->key,key) ? 1 : 0;
     Node* next;
     do
     {
         next = node->next;
-        if (node->key == key)
-        {
+        if (hashMap->equals(node->key,key))
             return 1;
-        }
     } while ((node = next) != NULL);
     return 0;
 }
@@ -178,17 +164,13 @@ int contains(HashMap* hashMap, int key)
 /*
     新增
 */
-void put(int key, int value, HashMap* hashMap)
+void put(HashMap* hashMap,void* key, void* value)
 {
     if (hashMap == NULL)
-    {
         return;
-    }
     if (hashMap->length == hashMap->size * 0.75)
-    {
         resize(hashMap);
-    }
-    int hash = key;
+    int hash = hashMap->hash_code(key);
     int index = hash & (hashMap->size - 1);
     Node** nodeIndex = &hashMap->data[index];
     //如果该槽位无元素则直接插入
@@ -204,7 +186,7 @@ void put(int key, int value, HashMap* hashMap)
     {
         e = next;
         next = e->next;
-        if (e->key == key)
+        if (hashMap->equals(e->key,key))
         {
             e->value = value;
             return;
@@ -215,14 +197,16 @@ void put(int key, int value, HashMap* hashMap)
 }
 
 /*
-    创建hashMap
+    创建hashMap,需指定计算hashcode和equals函数
 */
-HashMap* newHashMap()
+HashMap* newHashMap(int(*hash_code)(void*),int(*equals)(void*,void*))
 {
     HashMap* hashMap = (HashMap*)malloc(sizeof(HashMap));
     hashMap->size = 16;
     hashMap->length = 0;
     hashMap->data = (Node**)malloc(sizeof(Node*) * hashMap->size);
+    hashMap->hash_code = hash_code;
+    hashMap->equals = equals;
     memset(hashMap->data, 0, sizeof(Node*) * hashMap->size);
     return hashMap;
 }

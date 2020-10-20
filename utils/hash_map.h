@@ -8,7 +8,6 @@
 
 #ifndef hash_map_h
 #define hash_map_h
-#define MAP_NULL -854578421
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,8 +16,8 @@
 typedef struct node Node;
 struct node
 {
-    int key;
-    int value;
+    void* key;
+    void* value;
     int hash;
     Node* next;
 };
@@ -28,6 +27,8 @@ typedef struct hash_map
     int size;
     int length;
     Node** data;
+    int(*hash_code)(void*);
+    int(*equals)(void*,void*);
 }HashMap;
 
 /*
@@ -43,21 +44,21 @@ void free_map(HashMap* hashMap);
 /*
     contains
 */
-int contains(HashMap* hashMap, int key);
+int contains(HashMap* hashMap, void* key);
 
 /*
     get
 */
-int get(HashMap* hashMap, int key);
+void* get(HashMap* hashMap, void* key);
 
 /*
     新增
 */
-void put(int key, int value, HashMap* hashMap);
+void put(HashMap* hashMap,void* key, void* value);
 
 /*
-    创建hashMap
+    创建hashMap,需指定计算hashcode和equals函数
 */
-HashMap* newHashMap(void);
+HashMap* newHashMap(int(*hash_code)(void*),int(*equals)(void*,void*));
 
 #endif /* hash_map_h */
