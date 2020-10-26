@@ -48,7 +48,7 @@ int search(int* nums, int numsSize, int target){
     return num;
 }
 
-int main(void)
+int main_search(void)
 {
     int nums[] = {};
     int index = search(nums, 0,1);
