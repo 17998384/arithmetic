@@ -56,7 +56,7 @@ static int* findSubstring(char * s, char ** words, int wordsSize, int* returnSiz
     {
         if (strlen(words[i]) != word_size)
         {
-            free_map(hashMap);
+            free_map(hashMap,1);
             return NULL;
         }
         int* c =(int*)get(hashMap, words[i]);
@@ -115,7 +115,7 @@ static int* findSubstring(char * s, char ** words, int wordsSize, int* returnSiz
     }
     free(flag_array);
     free(tmp_cmp_str);
-    free_map(hashMap);
+    free_map(hashMap,1);
     return return_array;
 }
 

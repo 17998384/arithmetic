@@ -39,7 +39,7 @@ void resize(HashMap* hashMap);
 /*
     free
 */
-void free_map(HashMap* hashMap);
+void free_map(HashMap* hashMap,int is_free);
 
 /*
     contains
@@ -55,6 +55,11 @@ void* get(HashMap* hashMap, void* key);
     新增
 */
 void put(HashMap* hashMap,void* key, void* value);
+
+/*
+    clean
+ */
+void clean(HashMap* hashMap,int is_free);
 
 /*
     创建hashMap,需指定计算hashcode和equals函数

@@ -86,23 +86,25 @@ Node* createNode(int hash, void* key, void* value, Node* next)
     return node;
 }
 
-void FREE0(Node* node)
+void free_node(Node* node)
 {
     if (node == NULL)
         return;
-    FREE0(node->next);
+    free_node(node->next);
     node->key != NULL ? free(node->key) : NULL;
     node->value != NULL ? free(node->value) : NULL;
     free(node);
 }
 
-/*
-    free
-*/
-void free_map(HashMap* hashMap)
+void free_map0(HashMap* hashMap,int is_free)
 {
     for (int i = 0, size = hashMap->size; i < size; i++)
     {
+        if (!is_free)
+        {
+            hashMap->data[i] = NULL;
+            continue;
+        }
         Node* e = hashMap->data[i];
         if (e != NULL && e->next == NULL)
         {
@@ -111,8 +113,16 @@ void free_map(HashMap* hashMap)
             free(e);
         }
         else
-            FREE0(e);
+            free_node(e);
     }
+}
+
+/*
+    free
+*/
+void free_map(HashMap* hashMap,int is_free)
+{
+    free_map0(hashMap,is_free);
     free(hashMap->data);
     free(hashMap);
 }
@@ -194,6 +204,14 @@ void put(HashMap* hashMap,void* key, void* value)
     } while (next != NULL);
     e->next = createNode(hash, key, value, NULL);
     hashMap->length++;
+}
+
+/*
+    clean
+ */
+void clean(HashMap* hashMap,int is_free)
+{
+    free_map0(hashMap,is_free);
 }
 
 /*

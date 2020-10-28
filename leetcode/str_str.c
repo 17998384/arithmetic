@@ -47,7 +47,7 @@ int* get_next_array(char* needle,int target_len)
     {
         printf("%d ",next[i]);
     }
-    free_map(hash_nap);
+    free_map(hash_nap,1);
     return next;
 }
 

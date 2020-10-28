@@ -52,7 +52,7 @@ void test()
             *p2 = j;
             put(hashMap, p, p2);
         }
-        free_map(hashMap);
+        free_map(hashMap,1);
     }
 }
 
