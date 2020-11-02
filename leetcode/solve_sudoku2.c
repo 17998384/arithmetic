@@ -63,7 +63,7 @@ static void DFS(char** board,int index,int* flag)
     }
 }
 
-void solveSudoku4(char** board, int boardSize, int* boardColSize)
+void solveSudoku2(char** board, int boardSize, int* boardColSize)
 {
     memset(row_arr, 0, sizeof(row_arr));
     memset(col_arr, 0, sizeof(col_arr));
@@ -88,7 +88,7 @@ void solveSudoku4(char** board, int boardSize, int* boardColSize)
     DFS(board,0,&flag);
 }
 
-int main(void)
+int main_solveSudoku2(void)
 {
     char** example = (char**)malloc(sizeof(char*) * 9);
     for (int i = 0; i < 9; i++)
@@ -104,7 +104,7 @@ int main(void)
     strcpy(example[6], ".6....28.");
     strcpy(example[7], "...419..5");
     strcpy(example[8], "....8..79");
-    solveSudoku4(example, 9, NULL);
+    solveSudoku2(example, 9, NULL);
     for (int i = 0; i < 9; i++)
     {
         printf("%s\n",example[i]);
