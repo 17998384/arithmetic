@@ -62,6 +62,8 @@ static void DFS(int* candidates,int candidatesSize, int target, int* returnSize,
         //如果第N层为当前本身，则continue
         if (candidates[index] == target && sum != 0)
             continue;
+        if ((candidates[index] == candidates[index - 1]) && sum == 0)
+            continue;
         sum += candidates[index];
         buffer[buffer_p++] = candidates[index];
         DFS(candidates, candidatesSize, target, returnSize, returnColumnSizes, returnArr, index);
@@ -77,6 +79,7 @@ static void DFS(int* candidates,int candidatesSize, int target, int* returnSize,
  */
 int** combinationSum(int* candidates, int candidatesSize, int target, int* returnSize, int** returnColumnSizes)
 {
+    *returnSize = 0;
     int** returnArr = (int**)malloc(sizeof(int*) * 300);
     *returnColumnSizes = (int*)malloc(sizeof(int) * 300);
     DFS(candidates,candidatesSize,target,returnSize,*returnColumnSizes,returnArr,0);
