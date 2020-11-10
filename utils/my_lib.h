@@ -12,10 +12,18 @@
 #define my_lib_h
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 /*
     整数转字符串
  */
 char* itoa(int num,char* str,int radix);
+
+/*
+    十进制转二进制
+    使用后记得调用free()
+ */
+char* dec_to_binary(char* dec_num);
 
 #endif /* my_lib_h */

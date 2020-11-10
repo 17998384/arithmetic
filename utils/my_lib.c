@@ -49,3 +49,39 @@ char* itoa(int num,char* str,int radix)
  
     return str;//返回转换后的字符串
 }
+
+/*
+    十进制转二进制
+    使用后记得调用free()
+ */
+char* dec_to_binary(char* dec_num)
+{
+    int len = (int)strlen(dec_num);
+    char* binary = (char*)malloc(sizeof(char) * 100000);
+    int binary_index = 99999;
+    int flag = 1;
+    //被除数
+    int dividend = 1;
+    //余数
+    int remainder = 0;
+    while (flag)
+    {
+        if (!dividend)
+            break;
+        dividend = 0;
+        remainder = 0;
+        for (int i = 0; i < len; i++)
+        {
+            dividend = dec_num[i] + (remainder * 10) - '0';
+            remainder = dividend % 2;
+            dec_num[i] = dividend / 2 + '0';
+        }
+        binary[binary_index--] = remainder + '0';
+    }
+    for (++binary_index; binary_index < 100000; binary_index++)
+    {
+        printf("%c",binary[binary_index]);
+    }
+    printf("\n");
+    return NULL;
+}
