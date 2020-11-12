@@ -1,7 +1,9 @@
 //
 //  is_palindrome.c
 //  arithmetic
-//  回文数
+
+//  9.回文数
+
 //  Created by 我叫城北徐公° on 2020/9/14.
 //  Copyright © 2020 alex. All rights reserved.
 //

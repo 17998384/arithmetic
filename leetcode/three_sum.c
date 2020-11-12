@@ -1,6 +1,9 @@
 //
 //  three_sum.c
 //  arithmetic
+
+//  15.三数之和垃圾版
+
 //
 //  Created by 我叫城北徐公° on 2020/9/14.
 //  Copyright © 2020 alex. All rights reserved.

@@ -1,7 +1,9 @@
 //
 //  merge_two_lists.c
 //  arithmetic
-//  合并两个有序链表
+
+//  21.合并两个有序链表
+
 //  Created by 我叫城北徐公° on 2020/9/25.
 //  Copyright © 2020 alex. All rights reserved.
 //

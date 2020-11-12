@@ -1,6 +1,8 @@
 //
 //  str_str.c
 //  arithmetic
+
+//  28.实现strStr
 //
 //  Created by 我叫城北徐公° on 2020/10/14.
 //  Copyright © 2020 alex. All rights reserved.

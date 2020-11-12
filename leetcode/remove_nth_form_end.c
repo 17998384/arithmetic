@@ -1,7 +1,9 @@
 //
 //  remove_nth_form_end.c
 //  arithmetic
-//  删除链表的倒数第N个节点
+
+//  19.删除链表的倒数第N个节点
+
 //  Created by 我叫城北徐公° on 2020/9/24.
 //  Copyright © 2020 alex. All rights reserved.
 //

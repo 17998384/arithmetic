@@ -1,6 +1,8 @@
 //
 //  remove_duplicates.c
 //  arithmetic
+
+//  26.删除排序数组中的重复项
 //
 //  Created by 我叫城北徐公° on 2020/10/13.
 //  Copyright © 2020 alex. All rights reserved.

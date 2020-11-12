@@ -31,6 +31,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+//  37.解数独（改进版）
+
 int row_arr[9][9];
 int col_arr[9][9];
 int soduko_arr[3][3][9];

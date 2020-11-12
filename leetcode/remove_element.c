@@ -2,6 +2,8 @@
 //  remove_element.c
 //  arithmetic
 //
+//  27.移除元素
+
 //  Created by 我叫城北徐公° on 2020/10/13.
 //  Copyright © 2020 alex. All rights reserved.
 //

@@ -1,7 +1,9 @@
 //
 //  is_valid3.c
 //  arithmetic
-//  有效的括号'('，')'，'{'，'}'，'['，']'
+
+//  20.有效的括号'('，')'，'{'，'}'，'['，']'
+
 //  Created by 我叫城北徐公° on 2020/9/25.
 //  Copyright © 2020 alex. All rights reserved.
 //

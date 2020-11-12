@@ -2,7 +2,7 @@
 //  merge_k_lists.c
 //  arithmetic
 //
-//  合并K个生序链表
+//  23.合并K个生序链表
 //
 //  Created by 我叫城北徐公° on 2020/10/12.
 //  Copyright © 2020 alex. All rights reserved.

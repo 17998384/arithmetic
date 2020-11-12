@@ -2,6 +2,8 @@
 //  find_substring2.c
 //  arithmetic
 //
+//  30. 串联所有单词的子串（改进版）
+
 //  Created by 我叫城北徐公° on 2020/10/20.
 //  Copyright © 2020 alex. All rights reserved.
 //
