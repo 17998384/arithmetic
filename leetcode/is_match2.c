@@ -3,7 +3,7 @@
 //  arithmetic
 //
 
-//  44.通配符匹配
+//  44.通配符匹配（失败的垃圾版）
 
 //  给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 '?' 和 '*' 的通配符匹配。
 //
@@ -61,3 +61,69 @@
 //
 
 #include <stdio.h>
+#include <string.h>
+
+//int isMatch(char* s, char* p)
+//{
+//    int s_len = (int)strlen(s);
+////    int p_len = (int)strlen(p);
+//    int s_idx = 0;
+//    int p_idx = 0;
+//    int flag = 1;
+//    while (1)
+//    {
+//        if (p[p_idx] == '*')
+//        {
+//            p_idx++;
+//            continue;
+//        }
+//        else if(p[p_idx] == '?')
+//        {
+//            p_idx++;
+//            s_idx++;
+//            continue;
+//        }
+//        else
+//        {
+//            int p_start = p_idx;
+//            while (p[p_idx] != '\0' && p[p_idx] != '*' && p[p_idx] != '?') p_idx++ ;
+//            if (p[p_idx] != '\0' && p[p_idx] == '*')
+//            {
+//                int tmp = 0;
+//                for (int i = s_idx,j = p_start; i < s_len && j < p_idx; i++,j++)
+//                {
+//                    if (tmp == p_idx - p_start)
+//                    {
+//                        s_idx = i - j + p_start;
+//                        tmp = 0;
+//                        j = p_start;
+//                    }
+//                    if (s[i] == p[j])
+//                        tmp++;
+//                }
+//            }
+//            else
+//            {
+//                int tmp = 0;
+//                for (; s_idx < s_len && p_start < p_idx; s_idx++,p_start++)
+//                {
+//                    if (tmp == p_idx - p_start)
+//                        break;
+//                    if (s[s_idx] == p[p_start])
+//                        tmp++;
+//                }
+//                if (tmp != p_idx - p_start)
+//                {
+//                    flag = 0;
+//                    break;
+//                }
+//            }
+//        }
+//    }
+//    return 1;
+//}
+//
+//int main(void)
+//{
+//    isMatch("abcabczzzde", "*abc???de*");
+//}
