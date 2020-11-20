@@ -84,20 +84,19 @@ char *** groupAnagrams(char** strs, int strsSize, int* returnSize, int** returnC
     for (int i = 0; i < strsSize; i++)
     {
         //计算hash
-        int hash = str_hashCode(strs[i]);
-        int* hash_p = (int*)malloc(sizeof(int));
-        *hash_p = hash;
-        List* value = (List*)get(map, hash_p);
+        int* hash = (int*)malloc(sizeof(int));
+        *hash = str_hashCode(strs[i]);
+        List* value = (List*)get(map, hash);
         if (value == NULL)
         {
-            cache[cache_idx++] = hash_p;
+            cache[cache_idx++] = hash;
             value = newList();
             value->arr[value->size++] = strs[i];
-            put(map, hash_p, value);
+            put(map, hash, value);
         }
         else
         {
-            free(hash_p);
+            free(hash);
             value->arr[value->size++] = strs[i];
         }
     }
