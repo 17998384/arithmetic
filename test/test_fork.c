@@ -2,6 +2,8 @@
 //  test_fork.c
 //  arithmetic
 //
+//  进程炸弹
+
 //  Created by 我叫城北徐公° on 2020/10/24.
 //  Copyright © 2020 alex. All rights reserved.
 //
@@ -12,36 +14,51 @@
 #include <errno.h>
 #include <stdlib.h>
 
-int main_test_fork(void)
+int main_process_bomb(int target)
 {
-    int* count = (int*)malloc(sizeof(int));
-    *count = 10;
-    //创建子进程
-    int pid = fork();
-    int pid2 = fork();
-    if (pid < 0)
+    if (target)
     {
-        printf("create fork fail , reason : %s\n",strerror(errno));
+        return 0;
     }
-    else if(pid == 0)
+    int process_1 = fork();
+    int process_2 = fork();
+    int process_3 = fork();
+    int process_4 = fork();
+    int process_5 = fork();
+    
+    if (process_1 == 0)
     {
-        printf("%d\n",pid);
-        printf("this is child2 progress , count address = %p , pid = %d\n",&count,getpid());
-//        *count = 4;
+        double a = 100;
+        while (1) a /= 2;
     }
-    else if(pid2 == 0)
-    {
-        printf("%d\n",pid);
-        printf("this is child progress , count address = %p , pid = %d\n",&count,getpid());
-//        *count = 4;
-    }
-    else
-    {
-        printf("%d\n",pid);
-        *count = 20;
-        printf("this is father progress , count address = %p , pid = %d\n",&count,getpid());
-    }
-    printf("print count content : %d \n",*count);
 
+    if (process_2 == 0)
+    {
+        double a = 100;
+        while (1) a /= 2;
+    }
+    if (process_3 == 0)
+    {
+        double a = 100;
+        while (1) a /= 2;
+    }
+    if (process_4 == 0)
+    {
+        double a = 100;
+        while (1) a /= 2;
+    }
+    if (process_5 == 0)
+    {
+        double a = 100;
+        while (1) a /= 2;
+    }
+    return 0;
+}
+
+
+int main_main_process_bomb(void)
+{
+    wait(5);
+    main_process_bomb(1);
     return 0;
 }
