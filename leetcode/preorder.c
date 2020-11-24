@@ -17,7 +17,7 @@ int* nums;
 /// 递归版（dfs）
 /// @param root node节点
 /// @param returnSize 返回元素大小
-void dfs(struct Node* root, int* returnSize)
+static void dfs(struct Node* root, int* returnSize)
 {
     if (!root)
         return;

@@ -39,8 +39,8 @@ static struct ListNode* newListNode(int val)
 
 struct ListNode** bfs(struct TreeNode* tree, int* returnSize)
 {
-    struct ListNode** res = (struct ListNode**)calloc(1000, sizeof(struct ListNode*));
-    struct TreeNode** list = (struct TreeNode**)calloc(1000, sizeof(struct TreeNode*));
+    struct ListNode** res = (struct ListNode**)calloc(100, sizeof(struct ListNode*));
+    struct TreeNode** list = (struct TreeNode**)calloc(100, sizeof(struct TreeNode*));
     int start = 0;
     int end = 1;
     int end_0 = 1;
@@ -48,24 +48,22 @@ struct ListNode** bfs(struct TreeNode* tree, int* returnSize)
     res[*returnSize] = newListNode(tree->val);
     while (1)
     {
+        (*returnSize)++;
+        struct ListNode** head = &res[*returnSize];
         while (start != end)
         {
-            (*returnSize)++;
-            struct ListNode** head = &res[*returnSize];
             struct TreeNode* treeNode = list[start];
             if (treeNode->left)
             {
                 list[end_0++] = treeNode->left;
                 (*head) = newListNode(treeNode->left->val);
-//                printf("list address :%p,list val :%d,list next address :%p\n",*head,(*head)->val,(*head)->next);
-                head = &((*head)->next);
+                head = &(*head)->next;
             }
             if (treeNode->right)
             {
                 list[end_0++] = treeNode->right;
                 (*head) = newListNode(treeNode->right->val);
-//                printf("list address :%p,list val :%d,list next address :%p\n",*head,(*head)->val,(*head)->next);
-                head = &((*head)->next);
+                head = &(*head)->next;
             }
             start++;
         }
