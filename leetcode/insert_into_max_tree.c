@@ -30,7 +30,7 @@
 #include <stdlib.h>
 #include "tree_node.h"
 
-int* nums;
+static int* nums;
 
 int numsSize = 0;
 
