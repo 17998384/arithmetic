@@ -85,3 +85,106 @@ char* dec_to_binary(char* dec_num)
     printf("\n");
     return NULL;
 }
+
+//字符串替换函数
+char * strreplace(char const * const original,
+    char const * const pattern, char const * const replacement)
+{
+  size_t const replen = strlen(replacement);
+  size_t const patlen = strlen(pattern);
+  size_t const orilen = strlen(original);
+ 
+  size_t patcnt = 0;
+  const char * oriptr;
+  const char * patloc;
+ 
+  // find how many times the pattern occurs in the original string
+  for (oriptr = original; (patloc = strstr(oriptr, pattern)); oriptr = patloc + patlen)
+  {
+    patcnt++;
+  }
+ 
+  {
+    // allocate memory for the new string
+    size_t const retlen = orilen + patcnt * (replen - patlen);
+    char * const returned = (char *) malloc( sizeof(char) * (retlen + 1) );
+ 
+    if (returned != NULL)
+    {
+      // copy the original string,
+      // replacing all the instances of the pattern
+      char * retptr = returned;
+      for (oriptr = original; (patloc = strstr(oriptr, pattern)); oriptr = patloc + patlen)
+      {
+        size_t const skplen = patloc - oriptr;
+        // copy the section until the occurence of the pattern
+        strncpy(retptr, oriptr, skplen);
+        retptr += skplen;
+        // copy the replacement
+        strncpy(retptr, replacement, replen);
+        retptr += replen;
+      }
+      // copy the rest of the string.
+      strcpy(retptr, oriptr);
+    }
+    return returned;
+  }
+}
+ 
+ 
+//
+char *strreplace2(const char *src, const char *from, const char *to)
+{
+   size_t size    = strlen(src) + 1;
+   size_t fromlen = strlen(from);
+   size_t tolen   = strlen(to);
+   char *value = malloc(size);
+   char *dst = value;
+   if ( value != NULL )
+   {
+      for ( ;; )
+      {
+         const char *match = strstr(src, from);
+         if ( match != NULL )
+         {
+            size_t count = match - src;
+            char *temp;
+            size += tolen - fromlen;
+            temp = realloc(value, size);
+            if ( temp == NULL )
+            {
+               free(value);
+               return NULL;
+            }
+            dst = temp + (dst - value);
+            value = temp;
+            memmove(dst, src, count);
+            src += count;
+            dst += count;
+            memmove(dst, to, tolen);
+            src += fromlen;
+            dst += tolen;
+         }
+         else /* No match found. */
+         {
+            strcpy(dst, src);
+            break;
+         }
+      }
+   }
+   return value;
+}
+
+int binary_to_int(char* str)
+{
+    if (!str) return 0;
+    int str_len = (int)strlen(str);
+    int res = 0;
+    int bit = 1;
+    for (str_len--; str_len >= 0; str_len--)
+    {
+        res += bit * (str[str_len] - 48);
+        bit <<= 1;
+    }
+    return res;
+}
