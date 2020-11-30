@@ -45,7 +45,7 @@ struct TreeNode** delNodes(struct TreeNode* root, int* to_delete, int to_deleteS
     return nodes;
 }
 
-int main(void)
+int main_delNodes(void)
 {
     struct TreeNode* A = (struct TreeNode*)calloc(1,sizeof(struct TreeNode));
     A->val = 1;
