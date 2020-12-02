@@ -39,7 +39,7 @@
 #include "my_lib.h"
 #include "tree_node.h"
 
-void dfs(struct TreeNode* t,struct TreeNode* root,struct TreeNode* parent,char* str,int* str_idx)
+static void dfs(struct TreeNode* t,struct TreeNode* root,struct TreeNode* parent,char* str,int* str_idx)
 {
     if (!t)
     {

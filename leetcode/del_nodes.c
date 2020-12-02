@@ -64,4 +64,5 @@ int main_delNodes(void)
     int arr[] = {1};
     int returnSize;
     delNodes(A, arr, 1, &returnSize);
+    return 0;
 }
