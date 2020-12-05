@@ -1,7 +1,7 @@
 //
 //  segment_tree.h
 //  arithmetic
-//
+//  线段树
 //  Created by 我叫城北徐公° on 2020/11/19.
 //  Copyright © 2020 alex. All rights reserved.
 //
