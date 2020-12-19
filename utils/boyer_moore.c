@@ -68,7 +68,7 @@ int BM(char* src,char* target)
     return -1;
 }
 
-int main(void)
+int main_BM(void)
 {
     char* src = "aabaabbbaabbbbabaaab";
     char* target = "abaa";
