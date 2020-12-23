@@ -29,10 +29,3 @@ int uniquePaths(int m, int n)
             dp[j] = dp[j - 1] + dp[j];
     return dp[n - 1];
 }
-
-int main(void)
-{
-    int count = uniquePaths(3, 7);
-    printf("%d\n",count);
-    return 0;
-}

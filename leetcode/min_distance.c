@@ -35,24 +35,29 @@ int minDistance(char * word1, char * word2)
 {
     int word1_len = (int)strlen(word1);
     int word2_len = (int)strlen(word2);
-    int dp[word1_len + 1][word2_len + 1];
-    dp[0][0] = 0;
-    for (int i = 1; i <= word1_len; ++i) dp[i][0] = i;
-    for (int i = 1; i <= word2_len; ++i) dp[0][i] = i;
+    int dp[word2_len + 1];
+    dp[0] = 0;
+    int tmp = 0,tmp1;
+    for (int i = 1; i <= word2_len; ++i) dp[i] = i;
     for (int i = 1; i <= word1_len; ++i)
     {
+        dp[0] = i;tmp = i - 1;
         for (int j = 1; j <= word2_len; ++j)
         {
-            if (word1[i - 1] == word2[j - 1]) dp[i][j] = dp[i - 1][j - 1];
-            else dp[i][j] = (MIN(MIN(dp[i - 1][j],dp[i][j - 1]),dp[i - 1][j - 1])) + 1;
+            tmp1 = dp[j];
+            if (word1[i - 1] == word2[j - 1]) dp[j] = tmp;
+            else dp[j] = (MIN(MIN(dp[j],dp[j - 1]),tmp)) + 1;
+            tmp = tmp1;
         }
     }
-    return dp[word1_len][word2_len];
+    return dp[word2_len];
 }
 
 int main_minDistance(void)
 {
-    int move = minDistance("horse","ros");
+    //"sea"
+    //"eat"
+    int move = minDistance("sea","eat");
     printf("%d\n", move);
     return 0;
 }
