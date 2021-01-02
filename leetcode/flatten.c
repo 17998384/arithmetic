@@ -34,7 +34,7 @@ void flatten(struct TreeNode* root)
     dfs(root);
 }
 
-int main(void)
+int main_flatten(void)
 {
     //[1,2,2,3,null,null,3,4,null,null,4]
     struct TreeNode* tree = (struct TreeNode*)calloc(1,sizeof(struct TreeNode));
@@ -52,4 +52,5 @@ int main(void)
     tree->right->right = (struct TreeNode*)calloc(1,sizeof(struct TreeNode));
     tree->right->right->val = 6;
     flatten(tree);
+    return 0;
 }

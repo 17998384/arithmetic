@@ -31,6 +31,13 @@ typedef struct hash_map
     int(*equals)(void*,void*);
 }HashMap;
 
+typedef struct iterator
+{
+    //用于map遍历指针位置
+    int mod;
+    Node* mod_node;
+}Iterator;
+
 /*
     扩容
 */
@@ -55,6 +62,11 @@ void* get(HashMap* hashMap, void* key);
     新增
 */
 void put(HashMap* hashMap,void* key, void* value);
+
+/// 迭代
+/// @param iteraotr 迭代器
+/// @param hashMap map
+Node* iterator(Iterator* iteraotr,HashMap* hashMap);
 
 /*
     clean

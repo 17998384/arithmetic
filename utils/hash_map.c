@@ -206,6 +206,26 @@ void put(HashMap* hashMap,void* key, void* value)
     hashMap->length++;
 }
 
+/// 迭代
+/// @param iter 迭代器
+/// @param hashMap map
+Node* iterator(Iterator* iter,HashMap* hashMap)
+{
+    Node* res = NULL;
+    if (iter->mod_node != NULL)
+    {
+        res = iter->mod_node;
+        iter->mod_node = iter->mod_node->next;
+        return res;
+    }
+    for (; iter->mod < hashMap->size && !hashMap->data[iter->mod]; iter->mod++);
+    iter->mod_node = iter->mod >= hashMap->size ? NULL : hashMap->data[iter->mod];
+    res = iter->mod_node;
+    iter->mod++;
+    if (iter->mod_node != NULL) iter->mod_node = iter->mod_node->next;
+    return res;
+}
+
 /*
     clean
  */
