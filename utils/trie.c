@@ -29,7 +29,12 @@ static void add(char* s)
     for (int i = 0; i < len; ++i)
     {
         int c = s[i] - 97;
-        while (nodes[p][c]) p = nodes[p][c];
+        if (nodes[p][c])
+        {
+            p = nodes[p][c];
+            //避免重复添加
+            continue;
+        }
         nodes[p][c] = k;
         p = k;
         ++k;
@@ -51,7 +56,7 @@ static char* find(char* s)
     return color[p] == 1 ? "IS FIND" : "NO FIND";
 }
 
-int main_tric(void)
+int main_trie(void)
 {
     int add_count;
     int find_count;
