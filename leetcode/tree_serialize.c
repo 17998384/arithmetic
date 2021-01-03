@@ -11,7 +11,7 @@
 #include <string.h>
 #include "tree_node.h"
 
-#define DEBUG false
+#define DEBUG 0
 #define LIST_SIZE 20000
 #define SERIALIZE_STR_SIZE 80000
 
@@ -178,6 +178,7 @@ int main_tree_serialize(void)
     printf("%s\n",s);
     struct TreeNode* root = deserialize(s);
     printf("%p\n",root);
+    return 0;
 }
 
 // Your functions will be called as such:
