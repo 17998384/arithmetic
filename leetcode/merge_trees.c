@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include "tree_node.h"
 
-void dfs(struct TreeNode* t1, struct TreeNode* t2, struct TreeNode** root)
+static void dfs(struct TreeNode* t1, struct TreeNode* t2, struct TreeNode** root)
 {
     if (!t1 && !t2) return;
     if (t1 && t2)
