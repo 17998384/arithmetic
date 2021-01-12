@@ -42,6 +42,7 @@
 //
 
 #include <stdio.h>
+#include "tree_node.h"
 
 static void dfs2(struct TreeNode* root,struct TreeNode* compare,int* res)
 {
@@ -74,7 +75,7 @@ static void dfs(struct TreeNode* root,struct TreeNode* father,int x,int n,int* r
     dfs(root->right,root,x,n,res);
 }
 
-bool btreeGameWinningMove(struct TreeNode* root, int n, int x)
+int btreeGameWinningMove(struct TreeNode* root, int n, int x)
 {
     int res = 0;
     dfs(root,NULL,x,n,&res);
