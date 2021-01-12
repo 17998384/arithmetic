@@ -16,9 +16,8 @@
 #include <math.h>
 #include "tree_node.h"
 
-long total;
-
-long max;
+static long total;
+static long max;
 
 long calc_dfs(struct TreeNode* root)
 {
@@ -29,7 +28,7 @@ long calc_dfs(struct TreeNode* root)
     return sum;
 }
 
-long dfs(struct TreeNode* root)
+static long dfs(struct TreeNode* root)
 {
     if (!root) return 0L;
     long L = dfs(root->left);
