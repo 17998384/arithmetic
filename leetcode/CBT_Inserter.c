@@ -101,6 +101,7 @@ void cBTInserterFree(CBTInserter* obj)
 {
     printf("call free\n");
     free(obj->buffer);
+    free(obj);
 }
 
 /**
