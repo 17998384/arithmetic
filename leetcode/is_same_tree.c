@@ -51,7 +51,7 @@ static void dfs(struct TreeNode* p, struct TreeNode* q,int* isSame)
     dfs(p->right,q->right,isSame);
 }
 
-bool isSameTree(struct TreeNode* p, struct TreeNode* q)
+int isSameTree(struct TreeNode* p, struct TreeNode* q)
 {
     int res = 1;
     dfs(p,q,&res);
