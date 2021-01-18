@@ -28,15 +28,22 @@
 typedef struct find_elements
 {
     struct TreeNode* root;
-    int bitmap[40000];
-} FindElements;
+    int* bitmap;
+    int cur_size;
+}FindElements;
 
 static void dfs(struct TreeNode* root,int val,FindElements* findElements)
 {
     if (!root) return;
     root->val = val;
+    int remainder = val / 32;
+    if (remainder >= findElements->cur_size)
+    {
+        findElements->bitmap = realloc(findElements->bitmap,sizeof(int) * remainder << 1);
+        findElements->cur_size = remainder << 1;
+    }
     unsigned int bit = 1;
-    findElements->bitmap[val / 32] |= (bit << (val % 32));
+    findElements->bitmap[remainder] |= (bit << (val % 32));
     dfs(root->left,val * 2 + 1,findElements);
     dfs(root->right,val * 2 + 2,findElements);
 }
@@ -51,13 +58,15 @@ static void dfs_free(struct TreeNode* root)
 
 FindElements* findElementsCreate(struct TreeNode* root)
 {
-    FindElements* findElements = calloc(1,sizeof(FindElements));
+    FindElements* findElements = malloc(sizeof(FindElements));
     findElements->root = root;
+    findElements->cur_size = 512;
+    findElements->bitmap = calloc(findElements->cur_size,sizeof(int));
     dfs(root,0,findElements);
     return findElements;
 }
 
-int findElementsFind(FindElements* obj, int target)
+bool findElementsFind(FindElements* obj, int target)
 {
     unsigned int bit = 1;
     return obj->bitmap[target / 32] & (bit << (target % 32));
@@ -66,5 +75,6 @@ int findElementsFind(FindElements* obj, int target)
 void findElementsFree(FindElements* obj)
 {
     dfs_free(obj->root);
+    free(obj->bitmap);
     free(obj);
 }
