@@ -50,4 +50,10 @@ int main_distributeCoins(void)
     strcpy(data, "1,0,0,null,3");
     struct TreeNode* root = deserialize(data);
     distributeCoins(root);
+    return 0;
 }
+typedef struct find_elements
+{
+    struct TreeNode* root;
+    int bitmap[50000];
+} FindElements;
