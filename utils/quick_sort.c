@@ -18,7 +18,7 @@ void quick_sort0(int* arr,int L,int R,int size)
     int R_BAK = R;
     int target = RIGHT;
     int temp = *(arr + L);
-    while (L != R)
+    while (L < R)
     {
         switch (target)
         {
@@ -46,8 +46,8 @@ void quick_sort(int* arr,int size)
 
 int main_quick_sort(void)
 {
-//    int arr[] = {5,2,4,6,8,3,9,7};
-    int arr[] = {-1,0,1,2,-1,-4};
+    int arr[] = {5,2,4,6,8,3,9,7};
+//    int arr[] = {-1,0,1,2,-1,-4};
     quick_sort(arr, 6);
     for (int i = 0,size = sizeof(arr)/sizeof(int); i < size; i++)
     {

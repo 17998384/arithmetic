@@ -66,7 +66,7 @@ FindElements* findElementsCreate(struct TreeNode* root)
     return findElements;
 }
 
-bool findElementsFind(FindElements* obj, int target)
+int findElementsFind(FindElements* obj, int target)
 {
     unsigned int bit = 1;
     return obj->bitmap[target / 32] & (bit << (target % 32));
