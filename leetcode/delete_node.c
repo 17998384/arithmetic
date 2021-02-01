@@ -53,7 +53,7 @@
 #define LEFT 1
 #define RIGHT -1
 
-int dfs2(struct TreeNode** root_p,struct TreeNode* parent,struct TreeNode* oldParent,int direction)
+static int dfs2(struct TreeNode** root_p,struct TreeNode* parent,struct TreeNode* oldParent,int direction)
 {
     struct TreeNode* root = *root_p;
     //递归找到最左边的
@@ -83,7 +83,7 @@ int dfs2(struct TreeNode** root_p,struct TreeNode* parent,struct TreeNode* oldPa
     }
 }
 
-void dfs(struct TreeNode* root,struct TreeNode** parent,int key)
+static void dfs(struct TreeNode* root,struct TreeNode** parent,int key)
 {
     if (!root) return;
     if (root->val == key)
