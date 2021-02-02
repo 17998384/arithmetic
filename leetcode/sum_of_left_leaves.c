@@ -27,7 +27,7 @@
 
 static void dfs(struct TreeNode* root,int* sum)
 {
-    if (!root) return 0;
+    if (!root) return;
     if (root->left && !root->left->left && !root->left->right) *sum += root->left->val;
     dfs(root->left,sum);
     dfs(root->right,sum);
