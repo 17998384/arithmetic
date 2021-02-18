@@ -38,7 +38,7 @@ static void dfs(Node* root,Node* parent,int x,int y,int i)
     dfs(root->right,root,x,y,i + 1);
 }
 
-bool isCousins(struct TreeNode* root, int x, int y)
+int isCousins(struct TreeNode* root, int x, int y)
 {
     xDepth = yDepth = -1;
     xParent = yParent = NULL;
