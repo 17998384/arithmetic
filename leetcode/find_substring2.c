@@ -46,7 +46,7 @@ static int* findSubstring(char * s, char ** words, int wordsSize, int* returnSiz
     if (!str_len)
         return NULL;
     //使用map
-    HashMap* hashMap = newHashMap(hashCode,equals);
+    HashMap* hashMap = new_hash_map(hashCode,equals);
     //标记数组
     int* const flag_array = (int*)malloc(sizeof(int) * wordsSize * 2);
     //标记比较数组

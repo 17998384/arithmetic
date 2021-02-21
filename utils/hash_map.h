@@ -76,6 +76,6 @@ void clean(HashMap* hashMap,int is_free);
 /*
     创建hashMap,需指定计算hashcode和equals函数
 */
-HashMap* newHashMap(int(*hash_code)(void*),int(*equals)(void*,void*));
+HashMap* new_hash_map(int(*hash_code)(void*),int(*equals)(void*,void*));
 
 #endif /* hash_map_h */

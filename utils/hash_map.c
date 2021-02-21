@@ -8,6 +8,16 @@
 
 #include "hash_map.h"
 
+/// 计算hash
+/// @param hashMap map
+/// @param key key
+int _hash(HashMap* hashMap,void* key)
+{
+    int hash;
+    hash = ((hash = hashMap->hash_code(key)) ^ (hash >> 16));
+    return hash;
+}
+
 /*
     扩容
 */
@@ -132,7 +142,7 @@ void free_map(HashMap* hashMap,int is_free)
 */
 void* get(HashMap* hashMap, void* key)
 {
-    int hash = hashMap->hash_code(key);
+    int hash = _hash(hashMap, key);
     int index = (hashMap->size - 1) & hash;
     Node* node = hashMap->data[index];
     if (node == NULL)
@@ -180,7 +190,7 @@ void put(HashMap* hashMap,void* key, void* value)
         return;
     if (hashMap->length == hashMap->size * 0.75)
         resize(hashMap);
-    int hash = hashMap->hash_code(key);
+    int hash = _hash(hashMap, key);
     int index = hash & (hashMap->size - 1);
     Node** nodeIndex = &hashMap->data[index];
     //如果该槽位无元素则直接插入
@@ -237,7 +247,7 @@ void clean(HashMap* hashMap,int is_free)
 /*
     创建hashMap,需指定计算hashcode和equals函数
 */
-HashMap* newHashMap(int(*hash_code)(void*),int(*equals)(void*,void*))
+HashMap* new_hash_map(int(*hash_code)(void*),int(*equals)(void*,void*))
 {
     HashMap* hashMap = (HashMap*)malloc(sizeof(HashMap));
     hashMap->size = 16;

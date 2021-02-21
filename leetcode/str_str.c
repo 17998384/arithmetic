@@ -32,7 +32,7 @@ int* get_next_array(char* needle,int target_len)
     int i = 1;
     next[0] = 0;
     //创建map
-    HashMap* hash_nap = newHashMap(hashCode, equals);
+    HashMap* hash_nap = new_hash_map(hashCode, equals);
     while (needle[i])
     {
         int* value = (int*)get(hash_nap, needle + i);

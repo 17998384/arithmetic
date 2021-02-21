@@ -80,7 +80,7 @@ char *** groupAnagrams(char** strs, int strsSize, int* returnSize, int** returnC
     int* cache[1000] = {0};
     int cache_idx = 0;
     *returnColumnSizes = (int*)malloc(sizeof(int) * 1000);
-    HashMap* map = newHashMap(hashCode, equals);
+    HashMap* map = new_hash_map(hashCode, equals);
     for (int i = 0; i < strsSize; i++)
     {
         //计算hash

@@ -33,7 +33,7 @@ static int hashCode(void* key)
 int find_different(void)
 {
     FILE* sqlData = fopen("/Users/alex/Desktop/sqlData.txt", "r+");
-    HashMap* map = newHashMap(hashCode, equals);
+    HashMap* map = new_hash_map(hashCode, equals);
     unsigned long readCount;
     char* buffer = (char*)malloc(sizeof(char) * 6);
     int count = 0;

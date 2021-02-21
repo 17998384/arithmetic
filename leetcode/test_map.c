@@ -43,7 +43,7 @@ void test()
 {
     for (int i = 0; i < COUNT; i++)
     {
-        HashMap* hashMap = newHashMap(hashCode, equals);
+        HashMap* hashMap = new_hash_map(hashCode, equals);
         for (int j = 0; j < 1000000; j++)
         {
             int* p = malloc(sizeof(int));
