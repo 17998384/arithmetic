@@ -106,7 +106,7 @@ struct TreeNode** generateTrees(int n, int* returnSize)
     return res;
 }
 
-int main_generateTrees(void)
+void main_generateTrees(void)
 {
     int returnSize;
     Tree** res = generateTrees(8, &returnSize);
