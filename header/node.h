@@ -9,7 +9,8 @@
 #ifndef node_h
 #define node_h
 
-struct Node {
+struct Node
+{
     int val;
     int numChildren;
     struct Node** children;

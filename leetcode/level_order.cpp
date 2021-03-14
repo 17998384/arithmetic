@@ -50,6 +50,7 @@ public:
         {
             int rspBak = rsp;
             vector<int> v;
+            v.erase(v.begin());
             while (rbp < rspBak)
             {
                 TreeNode* t = stack[rbp++];

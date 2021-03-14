@@ -9,7 +9,8 @@
 #ifndef tree_node_h
 #define tree_node_h
 
-struct TreeNode {
+struct TreeNode
+{
     int val;
     struct TreeNode *left;
     struct TreeNode *right;
