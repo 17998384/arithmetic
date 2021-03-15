@@ -60,7 +60,7 @@ public:
         dfs(root->right);
         v.pop_back();
     }
-    
+
     vector<string> binaryTreePaths(TreeNode* root)
     {
         dfs(root);
