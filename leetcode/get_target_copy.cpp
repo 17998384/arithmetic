@@ -38,6 +38,7 @@
 //
 
 #include <iostream>
+#include <queue>
 #include "tree_node.hpp"
 
 using namespace std;
@@ -54,6 +55,7 @@ public:
             *res = b;
             return;
         }
+        queue<int> q;
         dfs(a->left,b->left,target,res);
         dfs(a->right,b->right,target,res);
     }
