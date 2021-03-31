@@ -36,7 +36,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_lib.h"
+#include "utils.h"
 #include "tree_node.h"
 
 static void dfs(struct TreeNode* t,struct TreeNode* root,struct TreeNode* parent,char* str,int* str_idx)

@@ -6,7 +6,7 @@
 //  Copyright © 2020 alex. All rights reserved.
 //
 
-#include "my_lib.h"
+#include "utils.h"
 
 /*
     整数转字符串
@@ -187,4 +187,20 @@ int binary_to_int(char* str)
         bit <<= 1;
     }
     return res;
+}
+
+
+/// 求两个数字的最大公约数
+/// @param a
+/// @param b 
+int gcd(int a,int b)
+{
+    int c;
+    while(b)
+    {
+        c = a % b;
+        a = b;
+        b = c;
+    }
+    return a;
 }

@@ -8,12 +8,15 @@
 //  Copyright © 2020 alex. All rights reserved.
 //
 
-#ifndef my_lib_h
-#define my_lib_h
+#define utils_h
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /*
     整数转字符串
@@ -42,4 +45,11 @@ char *strreplace2(const char *src, const char *from, const char *to);
 /// @param str 二进制字符串
 int binary_to_int(char* str);
 
-#endif /* my_lib_h */
+/// 求两个数字的最大公约数
+/// @param a 
+/// @param b
+int gcd(int a,int b);
+
+#ifdef __cplusplus
+}
+#endif
