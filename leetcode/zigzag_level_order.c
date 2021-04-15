@@ -31,23 +31,23 @@
 #include <stdlib.h>
 #include "tree_node.h"
 
-static int** bfs(struct TreeNode* tree, int* returnSize,int** returnColumnSizes)
+static int** bfs(struct TreeNode* tree, int* returnSize, int** returnColumnSizes)
 {
-    int** res = (int**)malloc(sizeof(int*) * 1000);
-    *returnColumnSizes = (int*)malloc(sizeof(int) * 1000);
-    struct TreeNode** list = (struct TreeNode**)calloc(1000, sizeof(struct TreeNode*));
+    int** res = (int**) malloc(sizeof(int*) * 1000);
+    *returnColumnSizes = (int*) malloc(sizeof(int) * 1000);
+    struct TreeNode** list = (struct TreeNode**) calloc(1000, sizeof(struct TreeNode*));
     int start = 0;
     int end = 1;
     int end_0 = 1;
     list[start] = tree;
-    res[*returnSize] = (int*)calloc(1, sizeof(int));
+    res[*returnSize] = (int*) calloc(1, sizeof(int));
     res[*returnSize][0] = tree->val;
     (*returnColumnSizes)[0] = 1;
     while (1)
     {
         int idx = 0;
         (*returnSize)++;
-        res[*returnSize] = (int*)calloc(1000, sizeof(int));
+        res[*returnSize] = (int*) calloc(1000, sizeof(int));
         while (start != end)
         {
             int* arr = res[*returnSize];
@@ -68,7 +68,7 @@ static int** bfs(struct TreeNode* tree, int* returnSize,int** returnColumnSizes)
         //2的倍数，反转
         if (idx > 0 && *returnSize % 2 != 0)
         {
-            for (int i = 0,last = idx - 1,size = (idx - 1) / 2 ; i <= size ; i++,last--)
+            for (int i = 0, last = idx - 1, size = (idx - 1) / 2; i <= size; i++, last--)
             {
                 if (i == last)
                     continue;
@@ -101,9 +101,9 @@ int** zigzagLevelOrder(struct TreeNode* root, int* returnSize, int** returnColum
 int main_zigzagLevelOrder(void)
 {
     //[1,2,2,3,null,null,3,4,null,null,4]
-    struct TreeNode* tree = (struct TreeNode*)calloc(1,sizeof(struct TreeNode));
+    struct TreeNode* tree = (struct TreeNode*) calloc(1, sizeof(struct TreeNode));
     tree->val = 1;
-    tree->left = (struct TreeNode*)calloc(1,sizeof(struct TreeNode));
+    tree->left = (struct TreeNode*) calloc(1, sizeof(struct TreeNode));
     tree->left->val = 2;
 //    tree->left->left = (struct TreeNode*)calloc(1,sizeof(struct TreeNode));
 //    tree->left->left->val = 4;
@@ -117,15 +117,14 @@ int main_zigzagLevelOrder(void)
 //    tree->right->right->val = 7;
     int returnSize;
     int* returnColumnSizes;
-    int** num = zigzagLevelOrder(tree, &returnSize,&returnColumnSizes);
+    int** num = zigzagLevelOrder(tree, &returnSize, &returnColumnSizes);
     for (int i = 0; i < returnSize; i++)
     {
         for (int j = 0; j < returnColumnSizes[i]; j++)
         {
-            printf("%d ",num[i][j]);
+            printf("%d ", num[i][j]);
         }
         printf("\n");
     }
     return 0;
 }
-

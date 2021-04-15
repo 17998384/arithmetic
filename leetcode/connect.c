@@ -68,21 +68,25 @@ static void bfs(Node* root)
     
 }
 
-#define LEFT 1
-#define RIGHT -1
-
-static void dfs(Node* parent,Node* root,int isLeft)
+static void dfs(Node* root)
 {
     if (!root) return;
-    if (isLeft == LEFT && parent) root->next = parent->right;
-    if (isLeft == RIGHT && parent && parent->next) root->next = parent->next->left;
-    dfs(root,root->left,LEFT);
-    dfs(root,root->right,RIGHT);
+    if (!root->left && !root->right) return;
+    if (root->left && root->right) root->left->next = root->right;
+    if (root->next)
+    {
+        Node* wait = root->right ? root->right : root->left;
+        Node* rootNext = root->next;
+        while (rootNext && !rootNext->left && !rootNext->right) rootNext = rootNext->next;
+        if (wait && rootNext) wait->next = rootNext->left ? rootNext->left : rootNext->right;
+    }
+    dfs(root->right);
+    dfs(root->left);
 }
 
 Node* leetcode_connect(Node* root)
 {
     // bfs(root);
-    // dfs(NULL,root,LEFT);
+    // dfs(root);
     return root;
 }
