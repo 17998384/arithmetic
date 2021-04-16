@@ -72,7 +72,7 @@ int countNodes(struct TreeNode* root)
     return (d ? ((1 << d) - 1) : 0) + nodeCount + 1;
 }
 
-int main(void)
+int main_count_nodes(void)
 {
     Tree* root = new_tree(1);
     root->left = new_tree(2);
