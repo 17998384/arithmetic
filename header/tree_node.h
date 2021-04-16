@@ -12,8 +12,8 @@
 struct TreeNode
 {
     int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
+    struct TreeNode* left;
+    struct TreeNode* right;
 };
 
 #endif /* tree_node_h */
