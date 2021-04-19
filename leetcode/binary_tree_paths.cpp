@@ -34,12 +34,13 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    
+
     vector<string> res;
     vector<int> v;
-    
+
     void dfs(TreeNode* root)
     {
         if (!root) return;
@@ -47,7 +48,7 @@ public:
         if (!root->left && !root->right)
         {
             string s;
-            for (int i = 0,size = v.size();i < size;i++)
+            for (int i = 0, size = v.size(); i < size; i++)
             {
                 s.append(to_string(v[i]));
                 if (i != size - 1) s.append("->");
