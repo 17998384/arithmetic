@@ -48,12 +48,12 @@ typedef struct TreeNode Tree;
 
 static Tree* new_tree(int val)
 {
-    Tree* tree = calloc(1,sizeof(Tree));
+    Tree* tree = calloc(1, sizeof(Tree));
     tree->val = val;
     return tree;
 }
 
-static Tree* bfs(Tree* root,int val,int depth)
+static Tree* bfs(Tree* root, int val, int depth)
 {
     if (depth == 1)
     {
@@ -62,7 +62,7 @@ static Tree* bfs(Tree* root,int val,int depth)
         return newRoot;
     }
     Tree* stack[8000];
-    int rbp,rsp,curDepth;
+    int rbp, rsp, curDepth;
     rbp = rsp = 0;
     stack[rsp++] = root;
     curDepth = 2;
@@ -95,5 +95,5 @@ static Tree* bfs(Tree* root,int val,int depth)
 
 struct TreeNode* addOneRow(struct TreeNode* root, int val, int depth)
 {
-    return bfs(root,val,depth);
+    return bfs(root, val, depth);
 }
