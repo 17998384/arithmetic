@@ -99,10 +99,3 @@ struct TreeNode* recoverFromPreorder(char* S)
     dfs(&root, 1, S, strLen, &strIdx);
     return root;
 }
-
-int main(void)
-{
-    char* s = "1-401--349---90--88";
-    Tree* root = recoverFromPreorder(s);
-    return 0;
-}
