@@ -34,7 +34,7 @@
 
 typedef struct ListNode LNode;
 
-struct ListNode* deleteDuplicates(struct ListNode* head)
+struct ListNode* deleteDuplicates2(struct ListNode* head)
 {
     LNode** tmp = &head;
     while (*tmp)

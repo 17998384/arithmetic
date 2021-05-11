@@ -10,9 +10,10 @@
 #define list_node_h
 
 
-struct ListNode {
+struct ListNode
+{
     int val;
-    struct ListNode *next;
+    struct ListNode* next;
 };
 
 #endif /* list_node_h */
