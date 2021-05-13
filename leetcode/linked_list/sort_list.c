@@ -74,7 +74,7 @@ static LNode* merge(LNode* left, LNode* right)
     return head;
 }
 
-static LNode* fast_slow_ptr(LNode* head)
+static LNode* fast_slow_ptr_split(LNode* head)
 {
     LNode* slow, * fast, * prev = NULL;
     slow = fast = head;
@@ -93,12 +93,12 @@ static LNode* fast_slow_ptr(LNode* head)
 static LNode* list_merge_sort(LNode* left, LNode* right)
 {
     if (!left || !right) return left ? left : right;
-    LNode* resL = list_merge_sort(left, fast_slow_ptr(left));
-    LNode* resR = list_merge_sort(right, fast_slow_ptr(right));
+    LNode* resL = list_merge_sort(left, fast_slow_ptr_split(left));
+    LNode* resR = list_merge_sort(right, fast_slow_ptr_split(right));
     return merge(resL, resR);
 }
 
 struct ListNode* sortList(struct ListNode* head)
 {
-    return list_merge_sort(head, fast_slow_ptr(head));
+    return list_merge_sort(head, fast_slow_ptr_split(head));
 }
