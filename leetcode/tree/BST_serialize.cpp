@@ -31,7 +31,7 @@
 #include <iostream>
 #include <string>
 #include <queue>
-#include "tree_node.hpp"
+#include "tree_node.h"
 
 using namespace std;
 
