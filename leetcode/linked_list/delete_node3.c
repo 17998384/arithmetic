@@ -35,7 +35,7 @@
 
 typedef struct ListNode LNode;
 
-struct ListNode* deleteNode(struct ListNode* head, int val)
+struct ListNode* deleteNode3(struct ListNode* head, int val)
 {
     LNode* res = head;
     LNode** resPtr = &res;
