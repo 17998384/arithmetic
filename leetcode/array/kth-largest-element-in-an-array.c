@@ -68,7 +68,7 @@ int pop_top(HeapSort* heapSort)
     return res;
 }
 
-int findKthLargest(int* nums, int numsSize, int k)
+int find_kth_largest(int* nums, int numsSize, int k)
 {
     int res = 0;
     HeapSort heapSort;
