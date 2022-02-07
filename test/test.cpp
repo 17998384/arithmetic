@@ -46,18 +46,6 @@ public:
 
 };
 
-class Test3
-{
-public:
-    int a;
-    int b;
-
-    ~Test3()
-    {
-        cout << "delete" << endl;
-    }
-};
-
 int main_test(void)
 {
     Test t;
