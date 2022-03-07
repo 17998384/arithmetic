@@ -49,9 +49,15 @@ public:
         set<long> s;
         for (int i = 0, size = nums.size(); i < size; ++i)
         {
-            auto iter = s.lower_bound((long) nums[i] - t);
-            if (iter != s.end() && abs(nums[i] - *iter) <= t) return true;
-            s.insert(nums[i]);
+            //假设t = 2，num[j] = 3 ,那么1 <= nums[i] <= 5才符合条件，所以
+            //假如nums[i] < nums[j]时，需要nums[j] - nums[i] >= t才符合条件，否则nums[i] - nums[j] <=t才可以
+            int b = nums[i];
+            //假设a比b小,即nums[i] < nums[j]时，需要nums[j] - nums[i] >= t，而我们要寻找a，则推导出b - t >=a，找出>=b - t的最小值
+            auto a = s.lower_bound((long) b - t);
+            //如果a比b大，即nums[i] > nums[j]时，需要nums[i] - nums[j] <= t，所以还需要再判断一步才可以
+            //正好满足了我们所说的，假设t = 2，num[j] = 3 ,那么1 <= nums[i] <= 5才符合条件
+            if (a != s.end() && (*a - b <= t)) return true;
+            s.insert(b);
             if (s.size() > k) s.erase(nums[i - k]);
         }
         return false;
