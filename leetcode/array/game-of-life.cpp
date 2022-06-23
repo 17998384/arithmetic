@@ -56,27 +56,29 @@ public:
     {
         int rowSize = board.size();
         int colSize = board[0].size();
-        vector<vector<int>> copy(rowSize);
         for (int i = 0; i < rowSize; i++)
         {
-            copy[i].resize(colSize);
-            std::copy(board[i].begin(), board[i].end(), copy[i].begin());
+            for (int j = 0; j < colSize; j++)
+            {
+                int liveNum = this->verify_live_num(board, i, j, rowSize, colSize);
+                if ((board[i][j] & 1) != 0)
+                {
+                    if (liveNum < 2) board[i][j] &= 1;
+                    else if (liveNum > 3) board[i][j] &= 1;
+                    else board[i][j] |= board[i][j] << 1;
+                }
+                else
+                {
+                    if (liveNum == 3) board[i][j] |= 2;
+                    else board[i][j] |= board[i][j] << 1;
+                }
+            }
         }
         for (int i = 0; i < rowSize; i++)
         {
             for (int j = 0; j < colSize; j++)
             {
-                int liveNum = this->verify_live_num(copy, i, j, rowSize, colSize);
-                if (copy[i][j] != 0)
-                {
-                    if (liveNum < 2) board[i][j] = 0;
-                    else if (liveNum > 3) board[i][j] = 0;
-                    else;
-                }
-                else
-                {
-                    if (liveNum == 3) board[i][j] = 1;
-                }
+                board[i][j] = board[i][j] >> 1;
             }
         }
     }
@@ -90,21 +92,21 @@ private:
          */
         int num = 0;
         //左上方
-        if (curRow - 1 >= 0 && curCol - 1 >= 0 && board[curRow - 1][curCol - 1] != 0) num++;
+        if (curRow - 1 >= 0 && curCol - 1 >= 0 && (board[curRow - 1][curCol - 1] & 1) != 0) num++;
         //上方
-        if (curRow - 1 >= 0 && board[curRow - 1][curCol] != 0) num++;
+        if (curRow - 1 >= 0 && (board[curRow - 1][curCol] & 1) != 0) num++;
         //右上方
-        if (curRow - 1 >= 0 && curCol + 1 < colSize && board[curRow - 1][curCol + 1] != 0) num++;
+        if (curRow - 1 >= 0 && curCol + 1 < colSize && (board[curRow - 1][curCol + 1] & 1) != 0) num++;
         //左边
-        if (curCol - 1 >= 0 && board[curRow][curCol - 1] != 0) num++;
+        if (curCol - 1 >= 0 && (board[curRow][curCol - 1] & 1) != 0) num++;
         //右边
-        if (curCol + 1 < colSize && board[curRow][curCol + 1] != 0) num++;
+        if (curCol + 1 < colSize && (board[curRow][curCol + 1] & 1) != 0) num++;
         //左下方
-        if (curRow + 1 < rowSize && curCol - 1 >= 0 && board[curRow + 1][curCol - 1] != 0) num++;
+        if (curRow + 1 < rowSize && curCol - 1 >= 0 && (board[curRow + 1][curCol - 1] & 1) != 0) num++;
         //下方
-        if (curRow + 1 < rowSize && board[curRow + 1][curCol] != 0) num++;
+        if (curRow + 1 < rowSize && (board[curRow + 1][curCol] & 1) != 0) num++;
         //右下方
-        if (curRow + 1 < rowSize && curCol + 1 < colSize && board[curRow + 1][curCol + 1] != 0) num++;
+        if (curRow + 1 < rowSize && curCol + 1 < colSize && (board[curRow + 1][curCol + 1] & 1) != 0) num++;
         return num;
     }
 };
@@ -112,8 +114,11 @@ private:
 int main_game_of_life(void)
 {
     Solution s;
-    vector<vector<int>> res = {{1, 1},
-                               {1, 0}};
+    vector<vector<int>> res = {{0, 1, 0},
+                               {0, 0, 1},
+                               {1, 1, 1},
+                               {0, 0, 0}};
     s.gameOfLife(res);
+    cout << endl;
     return 0;
 }
