@@ -21,6 +21,7 @@ static Node* new_node(int num)
     Node* node = malloc(sizeof(Node));
     node->children = calloc(num, sizeof(Node*));
     node->ref = 0;
+    node->end = 0;
     node->destroy_node = destroy_node;
     return node;
 }
@@ -37,6 +38,7 @@ void insert_element(PrefixTree* prefixTree, const char* str)
         ++(*curNode)->ref;
         idx++;
     }
+    (*curNode)->end = 1;
 }
 
 int query_element(PrefixTree* prefixTree, const char* str)

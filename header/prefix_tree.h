@@ -18,6 +18,8 @@ struct node
 
     int ref;
 
+    int end;
+
     void (* destroy_node)(Node* node, int childrenSize);
 };
 
