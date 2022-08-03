@@ -44,7 +44,7 @@ static void dfs_iter(struct TreeNode* root)
     dfs_iter(root->right);
 }
 
-struct TreeNode* pruneTree(struct TreeNode* root)
+static struct TreeNode* pruneTree(struct TreeNode* root)
 {
     dfs(root);
     if (!root->left && !root->right && !root->val) return NULL;

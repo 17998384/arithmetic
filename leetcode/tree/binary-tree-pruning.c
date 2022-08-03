@@ -53,7 +53,7 @@ static int dfs(TreeNode* treeNode)
     return a + b + treeNode->val;
 }
 
-struct TreeNode* pruneTree(struct TreeNode* root)
+static struct TreeNode* pruneTree(struct TreeNode* root)
 {
     int res = dfs(root);
     if (res == 0) return NULL;
