@@ -100,7 +100,7 @@
 
 typedef struct TreeNode TreeNode;
 
-TreeNode* new_node(int val, TreeNode* left, TreeNode* right)
+static TreeNode* new_node(int val, TreeNode* left, TreeNode* right)
 {
     TreeNode* node = malloc(sizeof(TreeNode));
     node->val = val;
