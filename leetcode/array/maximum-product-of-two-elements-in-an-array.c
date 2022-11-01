@@ -43,7 +43,7 @@ static int compare(void* a, void* b)
     return *(int*) a - *(int*) b;
 }
 
-int maxProduct(int* nums, int numsSize)
+static int maxProduct(int* nums, int numsSize)
 {
     qsort(nums, numsSize, sizeof(int), compare);
     return (nums[numsSize - 2] - 1) * (nums[numsSize - 1] - 1);

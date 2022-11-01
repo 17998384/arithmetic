@@ -39,7 +39,7 @@ static long dfs(struct TreeNode* root)
     return sum;
 }
 
-int maxProduct(struct TreeNode* root)
+static int maxProduct(struct TreeNode* root)
 {
     max = 0;
     total = calc_dfs(root);
