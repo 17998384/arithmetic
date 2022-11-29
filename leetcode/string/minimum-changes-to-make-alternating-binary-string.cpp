@@ -54,9 +54,8 @@ public:
             if (c0 != c) num0++;
             if (c1 != c) num1++;
             if (c0 == '1') c0--;
-            else c0++;
-            if (c1 == '1') c1--;
-            else c1++;
+            c0 ^= 1;
+            c1 ^= 1;
         }
         return min(num0, num1);
     }
